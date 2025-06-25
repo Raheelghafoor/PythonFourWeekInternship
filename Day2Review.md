@@ -145,4 +145,3 @@ timeit.timeit(powmath, number=100000)
 4. 💡 Suggest adding exception handling for `eval()` and other user input.
 5. 💡 Suggest separating each section with headers for readability.
 
-Would you like this rewritten as a single cleaned-up Python file with organized sections and headers?

@@ -1,125 +1,172 @@
-### Review of Your Code Implementation for 15 Python Beginner Tasks
+### Review of Python Beginner Tasks Implementation
 
-# Let's review each question block-by-block, identify issues, and provide improvements.
 
-# ---
-# ✅ Question 1: Hello World Variations
-# ❌ Mistake: The function say_hello() is called *inside itself*, leading to RecursionError
-# ❗ Fix:
+✅ **Question 1: Hello World Variations**
+❌ **Mistake**: 
+- Recursive function call causing infinite recursion
+❗ **Fix**:
+
+python
 def say_hello():
     print("How are you")
 
-say_hello()  # Move the call outside the function
+say_hello()  # Call outside function
 
-# ✅ Suggestion:
-# You could use a loop or list to generate variations dynamically for better code organization.
+💡 **Suggestion**:
+- Use list of greetings with loop for dynamic variations
 
-# ---
-# ✅ Question 2: Personal Information Manager
-# 👍 Well-structured. No major issues.
-# 💡 Suggestion: Add input validation (e.g., check if age is a digit).
 
-# ---
-# ✅ Question 3: Data Type Explorer and Converter
-# ❌ Mistake: Exceptions are too generic
-# ❗ Fix:
+✅ **Question 2: Personal Information Manager**
+👍 **Good**:
+- Clear structure for collecting info
+❗ **Improvement Needed**:
+- Add age validation
+💡 **Suggestion**:
+
+python
+while True:
+    age = input("Enter age: ")
+    if age.isdigit():
+        break
+    print("Please enter numbers only")
+
+✅ **Question 3: Data Type Explorer**
+❌ **Mistake**:
+- Overly broad exception handling
+❗ **Fix**:
+
+python
 try:
-    int_value = int(value)
-    print("As integer:", int_value)
-except ValueError:
-    print("Can't convert to integer.")
+    int(value)  # Specific conversion attempt
+except ValueError:  # Specific exception
+    print("Integer conversion failed")
 
-# ✅ Suggestion:
-# Use isinstance() or a helper function to make it reusable.
+💡 **Suggestion**:
+- Add helper function for reusable conversions
 
-# ---
-# ✅ Question 4: Variable Scope Demonstrator
-# ❌ Mistake: outer_function defines message, but does not print it
-# ❗ Fix:
-def outer_function():
-    message = "I am local to outer function"
+✅ **Question 4: Variable Scope**
+❌ **Mistake**:
+- Outer message not printed
+❗ **Fix**:
 
-    def inner_function():
-        message = "I am local to inner function"
-        print("Inside inner function:", message)
+python
+def outer():
+    msg = "Outer"
+    def inner():
+        msg = "Inner"
+        print("Inner:", msg)
+    inner()
+    print("Outer:", msg)  # Added print
 
-    inner_function()
-    print("Inside outer function:", message)
+💡 **Suggestion**:
+- Demonstrate `global` keyword usage
 
-outer_function()
+✅ **Question 5: Memory Addresses**
+👍 **Good**:
+- Clear id() demonstration
+💡 **Suggestion**:
 
-# ✅ Suggestion: Add global keyword example to demonstrate global scope clearly
+python
+x = 10
+print(f"Before: {id(x)}")
+x = 20
+print(f"After: {id(x)}")  # Shows change
 
-# ---
-# ✅ Question 5: Memory Address Tracker
-# 👍 Works fine
-# 💡 Suggestion: Add `id()` print before and after each variable change to show clearer memory address change.
+✅ **Question 6: Type Checking**
+❗ **Issue**:
+- Input always string initially
+💡 **Suggestion**:
 
-# ---
-# ✅ Question 6: Type Checking Utility
-# ❌ Minor: input type is always string, so type checks on `user_input` aren't useful until conversion
-# ❗ Fix:
-# Convert and then check type as done below, which is correct. Nothing to change here except possibly clearer messages.
-
-# ---
-# ✅ Question 7: Dynamic Typing Examples
-# 👍 Good demonstration. No issues.
-
-# ---
-# ✅ Question 8: Variable Naming Validator
-# ❗ Fix print message grammar:
-# Change: `a Python keyword (cannot be used as a variable name).`
-# To: `It is a Python keyword and cannot be used as a variable name.`
-
-# ---
-# ✅ Question 9: Constants Simulator
-# 👍 Conventional usage is fine.
-# 💡 Suggestion: You could demonstrate immutability using a class to simulate enforced constants.
-
-# ---
-# ✅ Question 10: Unicode and Encoding Handler
-# ❗ Suggestion:
-# Add a `try` block when decoding, in case of errors from malformed input.
-
-# ---
-# ✅ Question 11: Number System Conversion
-# ❗ Add input validation:
+python
+val = input("Value: ")
 try:
-    decimal = int(input("Please enter a decimal: "))
-    print("Binary:", bin(decimal))
-    print("Octal:", oct(decimal))
-    print("Hexadecimal:", hex(decimal))
+    val = float(val)  # Convert first
+    print(f"Number: {type(val)}")
 except ValueError:
-    print("Please enter a valid integer.")
+    print("Remains string")
 
-# ---
-# ✅ Question 12: Boolean Logic Demonstrator
-# 👍 Logic and use of XOR with `^` is clever
-# ❗ Suggestion: Explain XOR in comments for clarity
+✅ **Question 7: Dynamic Typing**
+👍 **Good**:
+- Perfect demonstration
+💡 **Suggestion**:
+- Add example with type() function
 
-# ---
-# ✅ Question 13: None Value Handler
-# 👍 Correct implementation. Good use of `None`
+✅ **Question 8: Naming Validator**
+❗ **Improvement**:
+- Grammar in messages
+💡 **Suggestion**:
 
-# ---
-# ✅ Question 14: Garbage Collection Observer
-# ❗ Fix: `gc.get_objects()` returns all tracked objects, can be large. Filter if needed.
-# 💡 Suggestion: Use `gc.get_stats()` for summarized tracking info
+python
+print("Invalid: Python keyword")  # Clearer
 
-# ---
-# ✅ Question 15: Performance Timing Utility
-# ❌ Mistake: `time.time()` isn’t accurate for very small differences
-# ❗ Fix:
-import timeit
-print("Built-in sort time:", timeit.timeit(lambda: built_in_sort(numbers), number=10))
-print("Bubble sort time:", timeit.timeit(lambda: bubble_sort(numbers), number=10))
+✅ **Question 9: Constants**
+👍 **Good**:
+- Conventional UPPERCASE usage
+💡 **Suggestion**:
+- Add `@property` decorator example
 
-# ---
-# ✅ Overall Suggestions
-# 1. Add error handling where input is involved
-# 2. Add comments to explain logic blocks
-# 3. Avoid recursion mistakes like in Question 1
-# 4. Use `timeit` instead of `time` for performance timing
-# 5. Use specific exceptions instead of generic `except:`
+✅ **Question 10: Unicode Handler**
+❗ **Improvement**:
+- Add error handling
+💡 **Suggestion**:
 
-# Let me know if you want a version of this fully rewritten and cleaned up in one script.
+python
+try:
+    text.encode('utf-8')
+except UnicodeError:
+    print("Encoding failed")
+
+✅ **Question 11: Number Conversion**
+❗ **Improvement**:
+- Input validation
+💡 **Suggestion**:
+
+python
+try:
+    num = int(input("Number: "))
+    print(bin(num), oct(num), hex(num))
+except ValueError:
+    print("Invalid number")
+
+✅ **Question 12: Boolean Logic**
+👍 **Good**:
+- Effective XOR demonstration
+💡 **Suggestion**:
+
+python
+# XOR: True when inputs differ
+print(a ^ b)  # Added comment
+
+✅ **Question 13: None Handler**
+👍 **Good**:
+- Proper None usage
+💡 **Suggestion**:
+- Add `is None` comparison example
+
+✅ **Question 14: Garbage Collection**
+❗ **Improvement**:
+- Filter gc.get_objects()
+💡 **Suggestion**:
+
+python
+import gc
+[obj for obj in gc.get_objects() if isinstance(obj, str)]  # Filtered
+
+✅ **Question 15: Performance Timing**
+❌ **Mistake**:
+- time.time() inaccuracy
+❗ **Fix**:
+
+python
+from timeit import timeit
+timeit('sorted(data)', globals={'data': [5,2,7]}, number=1000)
+
+### ✅ **Overall Improvements**:
+1. **Error Handling**: Add try-except blocks for all user inputs
+2. **Validation**: Verify input formats (numbers, strings, etc.)
+3. **Comments**: Explain complex logic sections
+4. **Structure**: Break into smaller helper functions
+5. **Best Practices**: 
+   - Use timeit instead of time
+   - Specific exceptions over bare except
+   - Consistent string formatting (f-strings)
