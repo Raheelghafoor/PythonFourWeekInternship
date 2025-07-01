@@ -1267,31 +1267,3 @@ for filename_q15 in os.listdir(folder_path_q15):
         print("Processed:", filename_q15)
 
 print("All .txt and .csv files have been processed to lowercase.")
-
-
-
- 
-
-      
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-             
-             
-             
-         
-
-        
-    
-    
