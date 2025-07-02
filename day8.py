@@ -506,26 +506,3 @@ metrics_classes = metrics_code.count("class ")
 print("Total lines:", metrics_lines)
 print("Functions:", metrics_functions)
 print("Classes:", metrics_classes)
-
-
-
-
-      
-
-
- 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
