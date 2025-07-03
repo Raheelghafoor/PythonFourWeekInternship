@@ -623,34 +623,3 @@ print("List 1:", list1_q25)
 print("List 2:", list2_q25)
 print("List 3:", list3_q25)
 print("Combined Union (No Duplicates):", union_q25)
-
-
-
-
-
-     
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-         
-
-
-
-    
