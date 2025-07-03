@@ -381,7 +381,7 @@ else:
     print("⚠️ Fix the warnings above to improve style.")
 
 #QUESTION 2
-print("\n=== Documentation Generator ===")
+print("\n==== Documentation Generator ====")
 def docg_add(a, b):
     """Adds two numbers and returns the result."""
     return a + b
@@ -399,7 +399,7 @@ with open("generated_docs.md", "w") as docg_file:
         docg_file.write(f"## {func.__name__}()\n")
         docg_file.write(func.__doc__ + "\n\n")
 
-print("📄 Documentation saved to generated_docs.md")
+print("📄 Documentation saved to generateddocs.md")
 
 #QUESTION 3
 print("\n=== Code Formatter ===")
@@ -453,7 +453,11 @@ def hard(x):
         for i in range(x):
             if i % 2 == 0:
                 print(i)
+
 """
+
+
+
 complexity_results = cc_visit(complexity_code)
 for func in complexity_results:
     print(func.name, "- Complexity:", func.complexity)
