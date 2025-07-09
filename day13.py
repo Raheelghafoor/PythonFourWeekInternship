@@ -774,17 +774,3 @@ print("Is Palindrome:", is_palindrome_q15(pal_list_q15))
 print("Random List is Fibonacci:", is_fibonacci_q15(rand_list_q15))  
 print("Random List is Palindrome:", is_palindrome_q15(rand_list_q15))
     
-
-
-
-     
-
-
-
-
-
-
-
-
-
-
