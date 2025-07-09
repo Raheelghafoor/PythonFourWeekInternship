@@ -540,16 +540,3 @@ for num_q20 in num_set_q20:
         odd_set_q20.add(num_q20)
 print("Odd numbers:", odd_set_q20)
 print("Even numbers:", even_set_q20)
-
-
-
-
-
-
-
-
-
-
-   
-
-
